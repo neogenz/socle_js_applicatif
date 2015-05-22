@@ -1,0 +1,100 @@
+﻿<html class="spir" ng-app="pageAdmin">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin</title>
+    <!-- 25 kb -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container" ng-controller="pageAdminUserListCrtl">
+        <h3>Ajout d'utilisateurs AD</h3>
+        <span ng-if="isMock">Mock</span>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Groupe : </label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" ng-model="groupName">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-primary" ng-click="get_group_by_name()" ng-disabled="groupName.length == 0">Rechercher</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-offset-3 col-md-6">
+                            <strong ng-if="groupAD.list.length===0">Rechercher un groupe</strong>
+                            <div ng-if="groupAD.list.length>0">
+                                <div class="list-group detail list-group-overflow ad">
+                                    <label for="{{item.id}}" ng-repeat="item in groupAD.list" class="list-group-item nr" ng-class="{'active': groupAD.selected == item.name}">
+                                        <input id="{{item.id}}" type="radio" name="groupad" ng-model="groupAD.selected" value="{{item.name}}">{{item.name}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- LIB -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="//code.angularjs.org/1.3.8/angular.min.js"></script>
+    <!-- GLOBAL -->
+    <script src="assets/js/app/app_start.js"></script>
+    <script src="assets/js/app_util/__global.js"></script>
+    <script src="assets/js/app/constantes.js"></script>
+    <script src="assets/js/app/config.js"></script>
+    <!-- FUNCTIONS FACTORY -->
+    <script src="assets/js/app/03_DAL/factory.js"></script>
+    <script src="assets/js/app/03_DAL/xhr.list.js"></script>
+    <script src="assets/js/app/03_DAL/mock.list.js"></script>
+    <!-- UTIL -->
+    <script src="assets/js/app_util/httpRequest.js"></script>
+    <script src="assets/js/app_util/listOption.js"></script>
+    <script src="assets/js/app_util/loader.js"></script>
+    <!-- MOCK -->
+    <script src="assets/js/data/mock/group.AD.list.js"></script>
+    <!-- CONTROLLER -->
+    <script src="assets/js/app/01_CTRL/page.admin.js"></script>
+    <!-- SERVICES -->
+    <script src="assets/js/app/02_BLL/AD.manager.js"></script>
+    <!-- MODEL -->
+    <script src="assets/js/app/DTO/factory.js"></script>
+    <script>
+    app.start();
+    </script>p
+    <!-- lib CDN -->
+    <!-- 6.2 kb
+   <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script> -->
+    <!-- 60 kb -->
+    <!-- 2.5 kb 
+   <script src="//code.angularjs.org/1.3.8/angular-route.min.js"></script>-->
+    <!-- 5.8 kb 
+   <script src="//code.angularjs.org/1.3.8/angular-animate.min.js"></script>-->
+    <!-- CORE 
+   <script src="assets/js/core/__global.js"></script>
+   <script src="assets/js/core/core.start.app.js"></script>
+   <script src="assets/js/core/core.xhr.js"></script>
+   <script src="assets/js/core/core.mock.js"></script>
+   <script src="assets/js/core/core.constante.js"></script>
+   <script src="assets/js/core/core.config.js"></script>
+   <script src="assets/js/core/core.object.business.factory.js"></script>-->
+    <!-- CONTROLLERS 
+   <script src="assets/js/crtl/admin.addUserFromAD.js"></script>-->
+    <!-- DATAS 
+   <script src="assets/js/data/static/admin.js"></script>
+   <script src="assets/js/data/mock/admin.user.AD.js"></script>-->
+    <!-- API 
+   <script src="assets/js/api/listOption.js"></script>-->
+</body>
+
+</html>

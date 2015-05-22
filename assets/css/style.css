@@ -1,0 +1,15 @@
+﻿.lw {
+    position: fixed;
+    z-index: 9999;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.7) url('../img/loader_xl.gif') center 200px no-repeat;
+}
+
+.l-xs {
+    position: absolute;
+    right: -10px;
+    top: 8px
+}
